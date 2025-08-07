@@ -325,8 +325,16 @@ int main(int argc, char *argv[]) {
     case HALT_CHAR:
       printf("Halted\n");
       drawRam(Ν, Ψ, Ω, 1, Ο, Π, ΑΑ + 1);
-      while (getchar() != '\n' && !🪻)
-        ;
+      SDL_Event ΓΓ;
+      uint8_t ΔΔ = 0;
+      while (!🪻 && !ΔΔ) {
+        while (SDL_PollEvent(&ΓΓ)) {
+          if (ΓΓ.type == SDL_KEYDOWN && ΓΓ.key.keysym.sym == SDLK_RETURN) {
+            ΔΔ = 1;
+            break;
+          }
+        }
+      }
       break;
     }
 
